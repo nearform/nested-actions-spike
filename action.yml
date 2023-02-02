@@ -10,4 +10,4 @@ runs:
     - uses: actions/github-script@v6
       with:
         script: |
-          echo '${{ toJSON(github.action_repository) }}'
+          console.log(${{ github.action_repository }})
