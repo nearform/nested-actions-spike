@@ -3,10 +3,7 @@ name: "nested-actions-spike"
 runs:
   using: "composite"
   steps:
-    - uses: actions/github-script@v6
-      with:
-        script: |
-          console.log(JSON.stringify(${{ github }}))
+    - run: echo '${{ toJSON(github) }}'
     - uses: actions/github-script@v6
       with:
         script: |
