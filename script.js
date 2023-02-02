@@ -1,5 +1,4 @@
-module.exports = () => {
-  const actionRepo = process.env.GITHUB_ACTION_REPOSITORY
+module.exports = (actionRepo) => {
   const [repoOrg, repoName] = actionRepo.split('/')
   const newOrg = 'nearform-actions'
   const oldOrg = 'nearform'

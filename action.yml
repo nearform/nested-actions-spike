@@ -7,7 +7,7 @@ runs:
       with:
         script: |
           const script = require('./script.js')
-          console.log(script())
+          console.log(script(process.env.GITHUB_ACTION_REPOSITORY))
     - uses: actions/github-script@v6
       with:
         script: |
