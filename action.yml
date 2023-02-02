@@ -11,7 +11,6 @@ runs:
           const [repoOrg, repoName] = actionRepo.split('/')
           const newOrg = 'nearform-actions'
           const oldOrg = 'nearform'
-
           if (repoOrg === oldOrg) {
             console.log(
               `The '${repoName}' action, no longer exists under the '${oldOrg}' organisation.\n` +
