@@ -3,9 +3,12 @@ name: "nested-actions-spike"
 runs:
   using: "composite"
   steps:
-    - id: context
+    - id: action_ref
       shell: bash
-      run: echo '${{ toJSON(github.action_path) }}'
+      run: echo '${{ toJSON(github.action_ref) }}'
+    - id: action_repository
+      shell: bash
+      run: echo '${{ toJSON(github.action_repository) }}'
     - uses: actions/github-script@v6
       with:
         script: |
