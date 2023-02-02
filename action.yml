@@ -5,7 +5,7 @@ runs:
   steps:
     - id: context
       shell: bash
-      run: echo '${{ toJSON(github) }}'
+      run: echo '${{ toJSON(github.action_path) }}'
     - uses: actions/github-script@v6
       with:
         script: |
