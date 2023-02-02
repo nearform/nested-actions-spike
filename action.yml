@@ -1,4 +1,4 @@
-name: "nested-actions-spike"
+name: "nested-actions-spike-something"
 
 runs:
   using: "composite"
