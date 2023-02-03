@@ -9,7 +9,7 @@ runs:
         ACTION_NAME: ${{ toJSON(github.action) }}
       with:
         script: |
-          const script = require('script.js')
+          const script = require('./script.js')
           await script({core})
     - uses: actions/github-script@v6
       with:
