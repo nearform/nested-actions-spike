@@ -1,12 +1,14 @@
 module.exports = async () => {
   const actionRepo = process.env.GITHUB_ACTION
-  const parentAction = actionRepo.match(/\_(.*)\_/).pop();
+  const parentActionOrg = actionRepo.match(/\__(.*)\_/).pop();
+  const parentActionRepo = actionRepo.match(/\-(.*)/).pop();
   const [repoOrg, repoName] = actionRepo.split('_')
   const newOrg = 'nearform-actions'
   const oldOrg = 'nearform'
 
   return `GITHUB_ACTION = ${actionRepo}
-          parentAction = ${parentAction}
+          parentAction = ${parentActionOrg}
+          parentActionRepo = ${parentActionRepo}
       The '${repoName}' action, no longer exists under the '${oldOrg}' organisation.\n
       Please update it to '${newOrg}', you can do this\n
       by updating your Github Workflow file from:\n\n
