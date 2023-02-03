@@ -1,8 +1,17 @@
 module.exports = async () => {
-  const {ACTION_NAME} = process.env
-  const [repoOrg, repoName] = ACTION_NAME.split('_')
-  console.log("-----------------")
-  console.log(`repoOrg: ${repoOrg}`)
-  console.log(`repoName: ${repoName}`)
-  console.log("-----------------")
+  const actionRepo = process.env.GITHUB_ACTION
+  const [repoOrg, repoName] = actionRepo.split('_')
+  const newOrg = 'nearform-actions'
+  const oldOrg = 'nearform'
+
+  if (repoOrg === oldOrg) {
+    core.warning(
+      `The '${repoName}' action, no longer exists under the '${oldOrg}' organisation.\n` +
+        `Please update it to '${newOrg}', you can do this\n` +
+        `by updating your Github Workflow file from:\n\n` +
+        `    uses: '${oldOrg}/${repoName}'\n\n` +
+        `to:\n\n` +
+        `    uses: '${newOrg}/${repoName}'\n\n`
+    )
+  }
 }
