@@ -10,4 +10,5 @@ runs:
     - uses: actions/github-script@v6
       with:
         script: |
-          console.log(${{ toJSON(github.action) }})
+          console.log(${{ github.action }})
+        # this could be the key!
