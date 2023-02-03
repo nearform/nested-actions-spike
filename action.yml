@@ -12,6 +12,6 @@ runs:
         ACTION_NAME: ${{ toJSON(github.action) }}
       with:
         script: |
-          const [repoOrg, repoName] = ACTION_NAME.split('_')
+          const [repoOrg, repoName] = $ACTION_NAME.split('_')
           console.log(repoOrg)
           console.log(repoName)
