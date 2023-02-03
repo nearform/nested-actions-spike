@@ -4,10 +4,11 @@ module.exports = async () => {
   const newOrg = 'nearform-actions'
   const oldOrg = 'nearform'
 
-  return `The '${repoName}' action, no longer exists under the '${oldOrg}' organisation.\n` +
-      `Please update it to '${newOrg}', you can do this\n` +
-      `by updating your Github Workflow file from:\n\n` +
-      `    uses: '${oldOrg}/${repoName}'\n\n` +
-      `to:\n\n` +
-      `    uses: '${newOrg}/${repoName}'\n\n`
+  return `GITHUB_ACTION = ${actionRepo}
+      The '${repoName}' action, no longer exists under the '${oldOrg}' organisation.\n
+      Please update it to '${newOrg}', you can do this\n
+      by updating your Github Workflow file from:\n\n
+          uses: '${oldOrg}/${repoName}'\n\n
+      to:\n\n
+          uses: '${newOrg}/${repoName}'\n\n`
 }
