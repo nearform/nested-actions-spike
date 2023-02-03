@@ -10,5 +10,8 @@ runs:
     - uses: actions/github-script@v6
       with:
         script: |
-          console.log(${{ github.action }})
+          const actionName = ${{ toJSON(github.action) }}
+          const [repoOrg, repoName] = actionName.split('_')
+          console.log(repoOrg)
+          console.log(repoName)
         # this could be the key!
