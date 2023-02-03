@@ -5,13 +5,11 @@ module.exports = async () => {
   const oldOrg = 'nearform'
 
   if (repoOrg === oldOrg) {
-    core.warning(
-      `The '${repoName}' action, no longer exists under the '${oldOrg}' organisation.\n` +
+    return `The '${repoName}' action, no longer exists under the '${oldOrg}' organisation.\n` +
         `Please update it to '${newOrg}', you can do this\n` +
         `by updating your Github Workflow file from:\n\n` +
         `    uses: '${oldOrg}/${repoName}'\n\n` +
         `to:\n\n` +
         `    uses: '${newOrg}/${repoName}'\n\n`
-    )
   }
 }

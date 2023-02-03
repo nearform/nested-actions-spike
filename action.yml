@@ -5,10 +5,11 @@ runs:
   steps:
     - uses: actions/checkout@v3
     - uses: actions/github-script@v6
+      id: "just-testing-this"
       with:
         script: |
           const script = require('./script.js')
-          await script()
+          console.log(script())
     - uses: actions/github-script@v6
       with:
         script: |
