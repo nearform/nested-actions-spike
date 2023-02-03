@@ -8,9 +8,10 @@ runs:
         script: |
           console.log(process.env)
     - uses: actions/github-script@v6
+      env:
+        ACTION_NAME: ${{ toJSON(github.action) }}
       with:
         script: |
-          const actionName = ${{ toJSON(github.action) }}
-          const [repoOrg, repoName] = actionName.split('_')
+          const [repoOrg, repoName] = ACTION_NAME.split('_')
           console.log(repoOrg)
           console.log(repoName)
