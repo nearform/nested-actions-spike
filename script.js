@@ -1,6 +1,6 @@
-module.exports = async ({core}) => {
+module.exports = async () => {
   const {ACTION_NAME} = process.env
   const [repoOrg, repoName] = ACTION_NAME.split('_')
-  core.log(repoOrg)
-  core.log(repoName)
+  console.log(repoOrg)
+  console.log(repoName)
 }
