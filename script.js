@@ -1,7 +1,7 @@
 module.exports = async () => {
   const actionRepo = process.env.GITHUB_ACTION
   const parentActionOrg = actionRepo.match(/\__(.*)\_/).pop();
-  const parentActionRepo = actionRepo.match(/\_(.*)/).pop();
+  const parentActionRepo = actionRepo.match(/([^_]+$)/).pop();
   const newOrg = 'nearform-actions'
   const oldOrg = 'nearform'
 
