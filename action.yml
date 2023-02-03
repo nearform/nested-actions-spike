@@ -3,15 +3,15 @@ name: "nested-actions-spike-something"
 runs:
   using: "composite"
   steps:
-    - uses: actions/github-script@v6
-      with:
-        script: |
-          console.log(process.env)
+    - uses: actions/checkout@v3
     - uses: actions/github-script@v6
       env:
         ACTION_NAME: ${{ toJSON(github.action) }}
       with:
         script: |
-          const [repoOrg, repoName] = $ACTION_NAME.split('_')
-          console.log(repoOrg)
-          console.log(repoName)
+          const script = require('script.js')
+          await script({core})
+    - uses: actions/github-script@v6
+      with:
+        script: |
+          console.log(process.env)
